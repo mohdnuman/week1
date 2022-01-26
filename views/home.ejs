@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/home.css">
+
+
+<div id="home-container">
+    <section id="feed-questions">
+        <h3>Teachers's End</h3>
+
+        <h2>Create a new mcq</h2>
+        <form action="/mcq/create" id="new-mcq-form" method="POST">
+            <textarea name="question"  cols="30" rows="3" placeholder="question..."></textarea>
+            <textarea name="option1"  cols="30" rows="3" placeholder="option1..."></textarea>
+            <textarea name="option2"  cols="30" rows="3" placeholder="option2...."></textarea>
+            <textarea name="option3"  cols="30" rows="3" placeholder="option3...."></textarea>
+            <textarea name="option4"  cols="30" rows="3" placeholder="option4...."></textarea>
+            <textarea name="answer"  cols="30" rows="3" placeholder="answer...."></textarea>
+
+            
+            <input type="submit" value="Create MCQ">
+        </form>
+        
+        <br>
+        <br>
+
+        <h2>Create a new fill in the blanks</h2>
+        <form action="/fill/create" id="new-fill-form" method="POST">
+            <textarea name="question"  cols="30" rows="3" placeholder="question...."></textarea>
+            <textarea name="answer"  cols="30" rows="3" placeholder="answer..."></textarea>
+            
+            <input type="submit" value="Create Fill in the Blank">
+        </form>
+
+        <hr>
+        <div id="mcqs-container">
+            <h2>MCQ's(<%=mcqs.length%> mcqs in the system)</h2>
+
+            <ul>
+            <% for(mcq of mcqs) {%>
+                    <%-include('_mcq')-%>
+
+                <%}%>
+            </ul>
+        </div>
+
+        <div id="fills-container">
+            <h2>Fill in the Blanks's(<%=fills.length%> fill in the blanks in the system)</h2>
+
+            <ul>
+            <% for(fill of fills) {%>
+                    <%-include('_fill')-%>
+
+                <%}%>
+            </ul>
+        </div>
+    </section>
+
+</div>
